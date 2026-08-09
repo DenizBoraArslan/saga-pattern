@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA7BD42-7C02-4643-9A48-E60E4D0A46DF}|Trigger.Api\\Trigger.Api.csproj|c:\\users\\den\u0130z\\desktop\\saga-pattern\\saga-choreography\\trigger.api\\controllers\\loanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CA7BD42-7C02-4643-9A48-E60E4D0A46DF}|Trigger.Api\\Trigger.Api.csproj|solutionrelative:trigger.api\\controllers\\loanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA7BD42-7C02-4643-9A48-E60E4D0A46DF}|Trigger.Api\\Trigger.Api.csproj|c:\\users\\den\u0130z\\desktop\\saga-pattern\\saga-choreography\\trigger.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CA7BD42-7C02-4643-9A48-E60E4D0A46DF}|Trigger.Api\\Trigger.Api.csproj|solutionrelative:trigger.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA7BD42-7C02-4643-9A48-E60E4D0A46DF}|Trigger.Api\\Trigger.Api.csproj|c:\\users\\den\u0130z\\desktop\\saga-pattern\\saga-choreography\\trigger.api\\models\\loanrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CA7BD42-7C02-4643-9A48-E60E4D0A46DF}|Trigger.Api\\Trigger.Api.csproj|solutionrelative:trigger.api\\models\\loanrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoansController.cs",
+              "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Controllers\\LoansController.cs",
+              "RelativeDocumentMoniker": "Trigger.Api\\Controllers\\LoansController.cs",
+              "ToolTip": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Controllers\\LoansController.cs",
+              "RelativeToolTip": "Trigger.Api\\Controllers\\LoansController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T13:02:07.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoanRequest.cs",
+              "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Models\\LoanRequest.cs",
+              "RelativeDocumentMoniker": "Trigger.Api\\Models\\LoanRequest.cs",
+              "ToolTip": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Models\\LoanRequest.cs",
+              "RelativeToolTip": "Trigger.Api\\Models\\LoanRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T13:01:30.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Trigger.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Program.cs",
+              "RelativeToolTip": "Trigger.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T12:55:37.237Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

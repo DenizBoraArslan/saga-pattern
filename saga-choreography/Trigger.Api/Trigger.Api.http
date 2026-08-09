@@ -1,0 +1,6 @@
+@Trigger.Api_HostAddress = http://localhost:5153
+
+GET {{Trigger.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

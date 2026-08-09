@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "Trigger.Api.Controllers.LoansController",
+    "Method": "RequestLoan",
+    "RelativePath": "api/Loans",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Trigger.Api.Models.LoanRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

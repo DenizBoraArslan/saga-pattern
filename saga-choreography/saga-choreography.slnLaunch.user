@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Catalog.Worker\\Catalog.Worker.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Membership.Worker\\Membership.Worker.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Loan.Worker\\Loan.Worker.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Trigger.Api\\Trigger.Api.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
