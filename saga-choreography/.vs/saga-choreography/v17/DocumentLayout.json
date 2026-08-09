@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E8419BFB-08A9-4D83-B48D-04188CC45929}|Loan.Worker\\Loan.Worker.csproj|c:\\users\\den\u0130z\\desktop\\saga-pattern\\saga-choreography\\loan.worker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E8419BFB-08A9-4D83-B48D-04188CC45929}|Loan.Worker\\Loan.Worker.csproj|solutionrelative:loan.worker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,6 +55,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-09T15:30:11.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Loan.Worker\\Program.cs",
               "RelativeDocumentMoniker": "Loan.Worker\\Program.cs",
@@ -63,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Catalog.Worker\\Program.cs",
               "RelativeDocumentMoniker": "Catalog.Worker\\Program.cs",
@@ -71,12 +88,11 @@
               "RelativeToolTip": "Catalog.Worker\\Program.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T14:23:53.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-09T14:23:53.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Program.cs",
               "RelativeDocumentMoniker": "Trigger.Api\\Program.cs",
@@ -84,12 +100,11 @@
               "RelativeToolTip": "Trigger.Api\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T14:15:53.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-09T14:15:53.652Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Membership.Worker\\Program.cs",
               "RelativeDocumentMoniker": "Membership.Worker\\Program.cs",
@@ -97,12 +112,11 @@
               "RelativeToolTip": "Membership.Worker\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T14:14:30.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-09T14:14:30.75Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Membership.Worker\\appsettings.json",
               "RelativeDocumentMoniker": "Membership.Worker\\appsettings.json",
@@ -110,12 +124,11 @@
               "RelativeToolTip": "Membership.Worker\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-09T14:14:28.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-09T14:14:28.068Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "LoansController.cs",
               "DocumentMoniker": "C:\\Users\\DEN\u0130Z\\Desktop\\saga-pattern\\saga-choreography\\Trigger.Api\\Controllers\\LoansController.cs",
               "RelativeDocumentMoniker": "Trigger.Api\\Controllers\\LoansController.cs",
@@ -123,8 +136,7 @@
               "RelativeToolTip": "Trigger.Api\\Controllers\\LoansController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T14:05:37.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-09T14:05:37.444Z"
             }
           ]
         }
