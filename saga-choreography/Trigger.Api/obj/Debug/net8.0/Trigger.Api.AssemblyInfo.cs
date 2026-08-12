@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trigger.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b6a300216679f28da51f9e95c617bce19be5a11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a92215112e37a046399a9458f1a471b41a40200c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trigger.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trigger.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

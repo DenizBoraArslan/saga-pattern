@@ -13,6 +13,16 @@ Bir kütüphane ödünç alma sistemi. Bir üye kitap ödünç almak istediğind
 3. **Loan** — ödünç kaydı oluşturulur.
 4. Herhangi bir adımda hata olursa (üye uygun değil, stok yetersiz), süreç **compensation** ile otomatik iptal edilir.
 
+Bu akış, repoda iki farklı klasörde, iki farklı koordinasyon stratejisiyle implemente edilmiştir:
+
+| | `saga-choreography/` | `saga-orchestration/` |
+|---|---|---|
+| **Koordinasyon** | Merkezi otorite yok, her servis kendi event'ini dinler/yayınlar | Tek bir state machine (`Loan.Orchestrator`) tüm akışı yönetir |
+| **İletişim** | Event ("ben oldum bu") | Komut ("sen şunu yap") + Event (sonuç) |
+| **Süreç durumu** | Hiçbir yerde tek parça değil, DB'lerden reconstruct edilir | `LoanSagaState` tablosunda tek satırda görünür |
+| **RabbitMQ portu** | `5672` | `5673` |
+| **SQL Server portu** | `1433` | `1434` |
+
 İki proje birbirinden bağımsız altyapı (RabbitMQ + SQL Server container'ları) kullanır ve **aynı anda paralel çalıştırılabilir.**
 
 ---
@@ -36,40 +46,36 @@ saga-orchestration/
 ├── Catalog.Worker/            # ReserveStockCommand dinler
 ├── Loan.Worker/                # CreateLoanCommand dinler
 └── docker-compose.yml         # RabbitMQ (5673/15673) + SQL Server (1434)
+```
+
+---
 
 ## Event/Akış Diyagramları
 
 ### Choreography
 
-```
-LoanRequestedEvent
-        │
-        ▼
-MembershipVerifiedEvent ──✗──► MembershipVerificationFailedEvent ──► Loan: Cancelled
-        │
-        ▼
-StockReservedEvent ──✗──► StockReservationFailedEvent ──► Loan: Cancelled
-        │
-        ▼
-Loan: Completed
+```mermaid
+flowchart TD
+    A[LoanRequestedEvent] --> B{Membership.Worker}
+    B -->|MembershipVerifiedEvent| C{Catalog.Worker}
+    B -->|MembershipVerificationFailedEvent| F1[Loan: Cancelled]
+    C -->|StockReservedEvent| D{Loan.Worker}
+    C -->|StockReservationFailedEvent| F2[Loan: Cancelled]
+    D --> E[Loan: Completed]
 ```
 
 ### Orchestration (State Machine)
 
-```
-Initial
-   │ LoanRequested
-   ▼
-AwaitingMembershipVerification
-   │ MembershipVerified          │ MembershipVerificationFailed
-   ▼                             ▼
-AwaitingStockReservation      Failed
-   │ StockReserved               │ StockReservationFailed
-   ▼                             ▼
-AwaitingLoanCreation           Failed
-   │ LoanCreated
-   ▼
-Completed
+```mermaid
+stateDiagram-v2
+    [*] --> AwaitingMembershipVerification: LoanRequested
+    AwaitingMembershipVerification --> AwaitingStockReservation: MembershipVerified
+    AwaitingMembershipVerification --> Failed: MembershipVerificationFailed
+    AwaitingStockReservation --> AwaitingLoanCreation: StockReserved
+    AwaitingStockReservation --> Failed: StockReservationFailed
+    AwaitingLoanCreation --> Completed: LoanCreated
+    Completed --> [*]
+    Failed --> [*]
 ```
 
 ---
@@ -123,29 +129,14 @@ cd Loan.Worker && dotnet ef database update && cd ..
 Sonra 5 servisi (Loan.Orchestrator, Membership.Worker, Catalog.Worker, Loan.Worker, Trigger.Api) ayrı terminallerde `dotnet run` ile başlat.
 
 RabbitMQ UI: `http://localhost:15673` (guest/guest)
-
-### Test Etmek
-
-Her iki proje için de `Trigger.Api` ayağa kalktıktan sonra:
-
-```bash
-curl -X POST https://localhost:XXXX/api/Loans \
-  -H "Content-Type: application/json" \
-  -d '{"memberId": "<seed-data-member-id>", "bookId": "<seed-data-book-id>"}'
-```
-
-Seed data'daki gerçek `memberId`/`bookId` değerlerini ilgili veritabanlarının `Members`/`Books` tablolarından alabilirsin.
-
-Orchestration'da saga'nın anlık durumunu izlemek için:
-```sql
-SELECT * FROM LoanSagaState;
-```
-
 ---
 
 ## Öne Çıkan Öğrenimler
 
-Projeyi geliştirirken karşılaşılan mimari trade-off'lar (kurulum karmaşıklığı, "süreç nerede?" sorusuna cevap verme kolaylığı, compensation mantığının merkezi/dağıtık oluşu, saga kaydının `Finalize()` sonrası kaybolması gibi) ve pratik altyapı sorunları (versiyon uyumsuzlukları, port konfigürasyonu) 
+- **"Süreç şu an nerede?"** sorusu choreography'de hiçbir yerde tek parça halde durmuyor, birden fazla veritabanından reconstruct edilmesi gerekiyor. Orchestration'da ise `LoanSagaState` tablosunda tek bir sorguyla cevaplanıyor.
+- **Compensation mantığı** choreography'de dağıtık (her worker kendi failure event'ini işliyor), orchestration'da merkezi (state machine'in tek bir dosyasında tanımlı).
+- Orchestration'da state machine'i yalnızca "başarı" akışı için komut gönderecek şekilde kurmak, başarısız taleplerin **hiçbir veritabanına iz bırakmadan kaybolmasına** yol açabiliyor — her failure path'i ayrı ayrı, bilinçli olarak ele almak gerekiyor. Bu proje kapsamında bu sorun bulunup düzeltildi.
+- Yeni bir adım eklemek choreography'de mevcut kodu değiştirmeden mümkünken (yeni bir worker eklemek yeterli), orchestration'da state machine'in kendisinin güncellenmesini gerektiriyor.
 
 ---
 
