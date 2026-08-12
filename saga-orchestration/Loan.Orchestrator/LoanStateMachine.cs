@@ -40,25 +40,29 @@ public class LoanStateMachine : MassTransitStateMachine<LoanSagaState>
             })
             .Publish(ctx => new VerifyMembershipCommand(ctx.Saga.CorrelationId, ctx.Saga.MemberId, ctx.Saga.BookId))
             .TransitionTo(AwaitingMembershipVerification)
-    );
+        );
+
         During(AwaitingMembershipVerification,
         When(MembershipVerified)
             .Publish(ctx => new ReserveStockCommand(ctx.Saga.CorrelationId, ctx.Saga.MemberId, ctx.Saga.BookId))
             .TransitionTo(AwaitingStockReservation),
         When(MembershipVerificationFailed)
             .Then(ctx => ctx.Saga.FailureReason = ctx.Message.Reason)
+            .Publish(ctx => new CreateCancelledLoanCommand(ctx.Saga.CorrelationId, ctx.Saga.MemberId, ctx.Saga.BookId, ctx.Message.Reason))
             .TransitionTo(Failed)
             .Finalize()
-    );
+        );
+
         During(AwaitingStockReservation,
-         When(StockReserved)
-             .Publish(ctx => new CreateLoanCommand(ctx.Saga.CorrelationId, ctx.Saga.MemberId, ctx.Saga.BookId))
-             .TransitionTo(AwaitingLoanCreation),
-         When(StockReservationFailed)
-             .Then(ctx => ctx.Saga.FailureReason = ctx.Message.Reason)
-             .TransitionTo(Failed)
-             .Finalize()
-     );
+            When(StockReserved)
+                .Publish(ctx => new CreateLoanCommand(ctx.Saga.CorrelationId, ctx.Saga.MemberId, ctx.Saga.BookId))
+                .TransitionTo(AwaitingLoanCreation),
+            When(StockReservationFailed)
+                .Then(ctx => ctx.Saga.FailureReason = ctx.Message.Reason)
+                .Publish(ctx => new CreateCancelledLoanCommand(ctx.Saga.CorrelationId, ctx.Saga.MemberId, ctx.Saga.BookId, ctx.Message.Reason))
+                .TransitionTo(Failed)
+                .Finalize()
+        );
 
         During(AwaitingLoanCreation,
           When(LoanCreated)

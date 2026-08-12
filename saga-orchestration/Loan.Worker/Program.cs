@@ -13,6 +13,7 @@ builder.Services.AddDbContext<LoanDbContext>(options => options.UseSqlServer(bui
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<CreateLoanCommandConsumer>();
+    x.AddConsumer<CreateCancelledLoanCommandConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
